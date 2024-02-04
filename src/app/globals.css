@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-datepicker-wrapper {
+    @apply w-full;
+}
+
 .react-datepicker-wrapper input {
     @apply bg-transparent;
     @apply placeholder:text-black-300;
