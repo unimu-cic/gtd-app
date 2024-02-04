@@ -8,3 +8,9 @@
     @apply outline-0;
     @apply appearance-none;
 }
+
+input {
+    @apply focus:outline-0;
+    @apply shadow-none;
+    @apply outline-none;
+}
