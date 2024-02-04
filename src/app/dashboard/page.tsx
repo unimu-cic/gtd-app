@@ -24,7 +24,7 @@ const Dashboard = async () => {
       <main className='max-w-xl mx-auto'>
         <Stat/>
         <Create session={session}/>
-        <ToDoList session={session}/>
+        <ToDoList/>
       </main>
     </section>
   )
