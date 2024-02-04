@@ -1,9 +1,11 @@
-const SignIn = () => {
+import AuthUI from "./AuthUI";
+
+const SignInPage = () => {
   return (
-    <main className='h-screen bg-black text-secondary'>
-      TBC: Sign in page
+    <main className='h-screen bg-black text-secondary justify-center flex items-center'>
+      <AuthUI />
     </main>
   )
 }
 
-export default SignIn
+export default SignInPage
