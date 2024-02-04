@@ -164,7 +164,7 @@ const ToDoItem = ({todo, onToggle, onUpdate, onDelete}: Props) => {
                     <DatePicker
                       onChange={onChange}
                       selected={value}
-                      placeholderText="Enter your birth date"
+                      placeholderText="Enter your end date"
                     />
                   );
                 }}
