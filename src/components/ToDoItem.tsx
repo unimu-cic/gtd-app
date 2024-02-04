@@ -140,7 +140,7 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
                   required: "Your next task can not be empty",
                   minLength: {
                     value: 4,
-                    message: "Password must be at least 4 characters.",
+                    message: "Title must be at least 4 characters.",
                   },
                 })}
               />

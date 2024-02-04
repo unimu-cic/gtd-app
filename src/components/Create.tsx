@@ -61,7 +61,7 @@ const Create: FC<Props> = ({ session }) => {
               required: "Your next task can not be empty",
               minLength: {
                 value: 4,
-                message: "Password must be at least 4 characters.",
+                message: "title must be at least 4 characters.",
               },
             })}
           />
