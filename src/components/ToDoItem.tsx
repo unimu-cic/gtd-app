@@ -1,14 +1,15 @@
 "use client";
-import { Item } from "@/store";
+import {Item} from "@/store";
 import classNames from "classnames";
-import { useState, MouseEvent } from "react";
+import {useState, MouseEvent} from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import dayjs from "dayjs";
+import DatePicker from 'react-datepicker'
 
 export type Inputs = {
   title: string;
-  enddate: string;
+  enddate: Date;
   description: string;
 };
 
@@ -18,13 +19,14 @@ type Props = {
   onUpdate: (id: string, date: Inputs) => void;
   onDelete: (id: string) => void;
 };
-const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
+const ToDoItem = ({todo, onToggle, onUpdate, onDelete}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
+    control,
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
@@ -102,7 +104,7 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
                 </g>
                 <defs>
                   <clipPath id="clip0_460_5">
-                    <rect width="1024" height="1024" fill="white" />
+                    <rect width="1024" height="1024" fill="white"/>
                   </clipPath>
                 </defs>
               </svg>
@@ -119,7 +121,7 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
         )}
       </div>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-black/10 backdrop-blur fixed inset-0" />
+        <Dialog.Overlay className="bg-black/10 backdrop-blur fixed inset-0"/>
         <Dialog.Content
           onEscapeKeyDown={() => setIsOpen(false)}
           className="fixed top-[50%] left-[50%] max-h-[85vh] text-black w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-secondary-500 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none"
@@ -131,7 +133,7 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2">
+            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2 focus-within:border-primary">
               <input
                 defaultValue={todo.title}
                 className="w-full appearance-none bg-transparent outline-0 placeholder:text-black-300"
@@ -145,7 +147,7 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
                 })}
               />
             </div>
-            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2">
+            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2 focus-within:border-primary">
               <input
                 defaultValue={todo.description}
                 className="w-full appearance-none bg-transparent outline-0 placeholder:text-black-300"
@@ -153,12 +155,19 @@ const ToDoItem = ({ todo, onToggle, onUpdate, onDelete }: Props) => {
                 {...register("description", {})}
               />
             </div>
-            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2">
-              <input
-                type="date"
-                className="select-none w-full appearance-none bg-transparent outline-0 placeholder:text-black-300"
-                placeholder="update your next task here"
-                {...register("enddate", {})}
+            <div className="bg-transparent border-black border rounded-lg grow px-4 py-2 focus-within:border-primary">
+              <Controller
+                name={"enddate"}
+                control={control}
+                render={({ field: { onChange, value } }) => {
+                  return (
+                    <DatePicker
+                      onChange={onChange}
+                      selected={value}
+                      placeholderText="Enter your birth date"
+                    />
+                  );
+                }}
               />
             </div>
             <button

@@ -53,10 +53,10 @@ const Create: FC<Props> = ({ session }) => {
   return (
     <div className="my-10">
       <form className="flex gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <div className="bg-black-500 rounded-lg grow px-4 py-2">
+        <div className="bg-black-500 rounded-lg grow px-4 py-2 focus-within:border-primary border border-transparent">
           <input
-            className="w-full appearance-none bg-transparent outline-0 placeholder:text-secondary/50"
-            placeholder="create your next task with enter"
+            className="w-full appearance-none bg-transparent outline-0 placeholder:text-secondary/50 appearance-none"
+            placeholder="create your next task..."
             {...register("title", {
               required: "Your next task can not be empty",
               minLength: {

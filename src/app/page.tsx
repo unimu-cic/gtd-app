@@ -10,7 +10,7 @@ export default function Home() {
 
       <Link
         href="/sign-in"
-        className="flex items-center bg-primary mt-20 h-12 px-8 rounded-2xl text-black"
+        className="flex items-center bg-primary mt-20 h-12 px-8 rounded-2xl text-black hover:bg-primary/80"
       >
         Start to GTD -&gt;
       </Link>

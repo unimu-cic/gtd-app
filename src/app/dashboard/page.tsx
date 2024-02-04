@@ -3,12 +3,12 @@ import Create from "@/components/Create";
 import { cookies } from "next/headers";
 import {
   createServerComponentClient,
-  Session,
 } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 import ToDoList from "@/components/ToDoList";
 import { Database } from "../../../types_db";
 import SignOutBtn from "@/components/SignOutBtn";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Dashboard = async () => {
   const supabase = createServerComponentClient<Database>({ cookies });
