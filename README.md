@@ -1,8 +1,9 @@
+# TODO List App Challenge
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Run App
 
-First, run the development server:
+First, create `.env` file base on `.env.example`:
 
 ```bash
 npm run dev
@@ -13,24 +14,40 @@ pnpm dev
 # or
 bun dev
 ```
+Open http://localhost:3000 with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- Login/Sign-up
+- Create Task
+- Edit Task
+- Delete Task
+- Mark as Completed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stacks
+- Frontend -> [Next.js](https://nextjs.org/)
+- Auth -> [Supabase](https://supabase.com/)
+- Database -> [Supabase](https://supabase.com/)
+- UI -> [TailwindCSS](https://tailwindcss.com/) + [Radix UI](https://www.radix-ui.com/)
+- State Management -> [Zustand](https://github.com/pmndrs/zustand)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
+### Home page
+![alt text](./screenshots/homepage.png)
 
-## Learn More
+### Sign in page
+![alt text](./screenshots/sign-in.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Default View
+![alt text](./screenshots/dashboard-default.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### TBD
+![alt text](./screenshots/tbd-task.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Completed
+![alt text](./screenshots/completed-task.png)
 
-## Deploy on Vercel
+### Update Task 
+![alt text](./screenshots/update-task.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Updated Task
+![alt text](./screenshots/updated-task.png)
