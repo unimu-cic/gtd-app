@@ -1,25 +1,26 @@
-'use client'
-import {useRouter} from 'next/navigation';
-import {createClientComponentClient} from "@supabase/auth-helpers-nextjs";
+"use client";
+import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const SignOutBtn = () => {
-  const supabase = createClientComponentClient()
+  const supabase = createClientComponentClient();
   const router = useRouter();
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.refresh()
-  }
+    await supabase.auth.signOut();
+    router.refresh();
+  };
 
   return (
     <button onClick={handleSignOut}>
       <svg className="w-6 h-6" viewBox="0 0 1024 1024">
         <path
           d="M170.666667 512a42.666667 42.666667 0 0 0 42.666666 42.666667h323.84l-98.133333 97.706666a42.752 42.752 0 0 0 13.866667 69.930667 42.666667 42.666667 0 0 0 46.72-9.344l170.666666-170.666667a42.666667 42.666667 0 0 0 8.96-14.08 42.666667 42.666667 0 0 0 0-32.426666 42.666667 42.666667 0 0 0-8.96-14.08l-170.666666-170.666667a42.794667 42.794667 0 1 0-60.586667 60.586667l98.133333 97.706666H213.333333a42.666667 42.666667 0 0 0-42.666666 42.666667zM725.333333 85.333333H298.666667a128 128 0 0 0-128 128v128a42.666667 42.666667 0 0 0 85.333333 0V213.333333a42.666667 42.666667 0 0 1 42.666667-42.666666h426.666666a42.666667 42.666667 0 0 1 42.666667 42.666666v597.333334a42.666667 42.666667 0 0 1-42.666667 42.666666H298.666667a42.666667 42.666667 0 0 1-42.666667-42.666666v-128a42.666667 42.666667 0 1 0-85.333333 0v128a128 128 0 0 0 128 128h426.666666a128 128 0 0 0 128-128V213.333333a128 128 0 0 0-128-128z"
-          fill="currentColor"></path>
+          fill="currentColor"
+        ></path>
       </svg>
     </button>
-  )
-}
+  );
+};
 
-export default SignOutBtn
+export default SignOutBtn;
